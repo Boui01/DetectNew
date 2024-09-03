@@ -1,15 +1,18 @@
 /*
-    Detect data date last new or out new in day such as 1/1/2567 to new and 30/12/2566 to out new count out new at limit_day
-    Mode ค่า
-    1 == โหมด Old
-    2 == โหมด New
+    Detect data date last new or out true at the day limit 1 day like this 1/1/2567 and 2/1/2567 to out true or 1/1/2567 and 3/1/2567 to out false  , This count out new or old at limit_day
+
+    Result output 
+    True / Flase
+    Mode value
+    1 == Mode Old
+    2 == Mode New
 */
 function DetectNew ( Time , Mode ,limit_day ){
     const time = new Date(Time);
     const today = new Date();
     const limit_new = limit_day 
 
-    if( Mode === 1){
+    if( Mode === 1 || Mode === 'old'){
         if( (time.getFullYear() === today.getFullYear() && (time.getMonth() === today.getMonth()) && (time.getDate() < today.getDate()-limit_new) )|| 
             (time.getFullYear() === today.getFullYear() &&  time.getMonth() !== today.getMonth()) ||       
             (time.getFullYear() !== today.getFullYear())
@@ -21,7 +24,7 @@ function DetectNew ( Time , Mode ,limit_day ){
             return false;
         }
     }
-    else if ( Mode === 2){
+    else if ( Mode === 2 || Mode === 'new'){
         if(  (time.getFullYear() === today.getFullYear()) &&
              (time.getMonth() === today.getMonth())  &&
              (time.getDate() >= today.getDate()-limit_new )
