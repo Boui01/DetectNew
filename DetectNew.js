@@ -1,8 +1,9 @@
 /*
-    Detect data date last new or out true at the day limit 1 day like this 1/1/2567 and 2/1/2567 to out true or 1/1/2567 and 3/1/2567 to out false  , This count out new or old at limit_day
+    Detect data date last new or out true at the day limit 1 day such as 1/1/2567 and 2/1/2567 to out true or 1/1/2567 and 3/1/2567 to out false  , This count out new or old at limit_day
 
     Result output 
     True / Flase
+    
     Mode value
     1 == Mode Old
     2 == Mode New
